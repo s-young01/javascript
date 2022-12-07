@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let lotto = []
+        let result = []
+        for (let i = 0; i <= 45; i++) {
+            lotto.push(i);
+            console.log(lotto);
+
+        }
+        for (let i = 0; i < 6; i++) {
+            let randomNum = Math.floor(Math.random() * lotto.length);
+            result.push(lotto[randomNum])
+            lotto.splice(randomNum,1)
+        }
+        
+    </script>
+</body>
+</html>

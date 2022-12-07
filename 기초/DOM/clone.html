@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box1">
+        <h2>감사합니다 .. ^^ 덕분에 힘을 얻어요 ^^</h2>
+    </div>
+</body>
+<script>
+    // node.append : 노드 끝에 삽입
+    // node.prepend : 노드 맨 앞에 삽입
+    // node.before : 노드 이전에 삽입
+    // node.after : 노드 다음에 삽입
+    let div1= document.querySelector("#box1");
+    let div2 = div1.cloneNode(true);
+    div1.insertAdjacentElement("beforebegin",div2);
+    // div1.after(div2);
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name : "green",
+            age : 20
+        };
+        let user2 = user;
+        user2.name = "blue";
+        console.log(user.name);
+
+        let a = {};
+        let b = a;
+        console.log(a == b);
+        console.log(a === b);
+
+        let c = {};
+        let d = {};
+        console.log(c == d);
+        console.log(c === d);
+
+        let student1 = {
+            name : "bella",
+            age : 22
+        };
+        // 새로운 빈 객체 만들어 줌
+        let clone = {}
+        // 빈 객체에 student1의 프로퍼티 전부를 복사해서 넣기
+        /* for in문 사용하기  
+        for (let key in student1) {
+            clone[key] = student1[key];
+        }  
+        */
+        /* 
+        clone["name"] = student1["name"];
+        clone["age"] = student1["age"];
+        */
+        console.log(clone);
+        // clone과 student1은 각각 독립적인 객체임
+        clone.name = "green";
+        console.log(clone);
+        // clone 객체의 name만 바뀜 !! (student1은 바뀌지 않음)
+        console.log(student1);
+        // Object.assign(목표 객체, 출처 객체);
+        Object.assign(clone, student1);
+        let clone2 = Object.assign({}, student1);
+        console.log(clone2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="userName" value="수요일">
+    <button onclick="inputPrint()">클릭</button>
+    <ul>
+        <!-- this는 이벤트를 발생시키는 대상 -->
+        <li>list1<span>span</span></li>
+        <li>list2<span>span</span></li>
+        <li>list3<span>span</span></li>
+        <li>list4<span>span</span></li>
+    </ul>
+    <div id="box01"><h1>안녕하세요</h1></div>
+    <script>
+        const input = document.querySelector("#userName");
+        console.log(input);
+        function inputPrint() {
+            input.value = "";
+        }
+        // parentElement : 선택한 요소의 부모를 찾아가주는 친구
+        const ul = document.querySelector("ul");
+        ul.addEventListener("click", function(e) {
+            console.log(e);
+            // target : 무엇을 클릭했는지 알 수 있게 함
+            let li = e.target;
+            console.log(li);
+        });
+        // box01.innerText = "<h2>수요일</h2>";
+        box01.innerHTML = "<h2>수요일</h2>";
+
+        const li = document.createElement('li');
+        li.innerHTML = "새로운<span>list</span>입니다.";
+        ul.prepend(li);
+    </script>
+</body>
+</html>

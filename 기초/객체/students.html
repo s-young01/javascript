@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Student (name, age, enrolled, score) {
+            this.name = name;
+            this.age = age;
+            this.enrolled = enrolled;
+            this.score = score;
+        }
+        let students = [
+            new Student('재훈',32,true,80),
+            new Student('수민',25,false,90),
+            new Student('세영',22,false,85),
+            new Student('효정',27,true,80)
+        ];
+        console.log(students);
+
+        let scores = [85,65,75,80,90,95];
+        // find() : 배열에서 해당하는 하나의 값을 찾으면 그 값을 리턴하고 종료
+        let result = scores.find(i => i > 80);
+        console.log(result);
+        // filter() : 배열에서 조건에 맞는 배열요소들을 새로운 배열로 리턴
+        let result2 = scores.filter(i => i > 80);
+        console.log(result2);
+        // map() : 배열에서 배열요소의 값을 변형해서 새로운 배열로 리턴
+        let result3 = scores.map(i => i + 10);
+        console.log(result3);
+
+        // students 배열에서 점수가 90점인 학생
+        let result4 = students.find(student => student.score === 90);
+        let result5 = students.find(function(student) {
+            return student.score === 90;
+        })
+        console.log(result4);
+        console.log(result5);
+
+        // students 배열에서 enrolled가 true인 학생들
+        let result6 = students.filter(student => student.enrolled === true);
+        console.log(result6);
+
+        // students 배열에서 
+        let result7 = students.map(student => student.score);
+        console.log(result7);
+    </script>
+</body>
+</html>

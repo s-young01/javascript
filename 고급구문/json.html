@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dog = {
+            name : "구름",
+            age : 3,
+            hobby : "공놀이",
+            eat() {
+                console.log("먹는다.")
+            }
+        }
+        let json = JSON.stringify(dog);
+        console.log(typeof dog);
+        console.log(typeof json);
+        let dog2 = JSON.parse(json);
+        console.log(typeof dog2);
+    </script>
+</body>
+</html>

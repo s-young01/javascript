@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const myfun1 = (message) => {
+            console.log(message);
+            return new Promise((resolve, reject) => {
+                setTimeout(function(){
+                    resolve("1번 주문완료");
+                },1000)
+            })
+        }
+        const myfun2 = (message) => {
+            console.log(message);
+            return new Promise((resolve, reject) => {
+                setTimeout(function(){
+                    resolve("2번 주문완료");
+                },2000)
+            })
+        }
+        const myfun3 = (message) => {
+            console.log(message);
+            return new Promise((resolve, reject) => {
+                setTimeout(function(){
+                    resolve("3번 주문완료");
+                },3000)
+            })
+        }
+        console.time("r");
+
+        // 순차적으로 하나씩 보여줌
+        myfun1()
+        .then(res => myfun2(res))
+        .then(res => myfun3(res))
+        .then(res => {
+            console.log(res)
+            console.timeEnd("r");
+        })
+
+        // Promise.all : 모든 데이터들을 다 받아서 한 번에 보여줘야할 때 
+        // Promise.all([myfun1(), myfun2(), myfun3()]).then(res => {
+        //     console.log(res);
+        //     console.timeEnd("r");
+        // })
+
+        // Promise.race : 여러 개 중 제일 먼저 도착하는 데이터만 보여줌
+        // Promise.race([myfun1(), myfun2(), myfun3()]).then(res => {
+        //     console.log(res);
+        //     console.timeEnd("r");
+        // })
+    </script>
+</body>
+</html>

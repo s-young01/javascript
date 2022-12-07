@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            transition: 0.3s;
+        }
+        li.on {
+            background-color: aquamarine;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li id="Digit1">1</li>
+            <li id="Digit2">2</li>
+            <li id="Digit3">3</li>
+        </ul>
+    </div>
+    <script>
+        // 키보드의 키를 눌렀을 때
+        window.addEventListener("keydown", function(e) {
+            const key = document.querySelector(`#${e.code}`);
+            if(key) {
+                key.classList.add("on");
+            }
+        })
+        // 키보드의 키를 땠을 때
+        window.addEventListener("keyup", function(e) {
+            const key = document.querySelector(`#${e.code}`);
+            if(key) {
+                key.classList.remove("on");
+            }
+        })
+    </script>
+</body>
+</html>

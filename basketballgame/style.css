@@ -1,0 +1,53 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+#wrap {
+    width: 70%;
+    margin: 50px auto;
+    background: coral;
+    padding: 2px;
+}
+.div_scoreboard {
+    border: 1px solid #fff;
+    text-align: center;
+    color: #fff;
+}
+.div_short_left {
+    padding-top: 20px;
+    line-height: 40px;
+}
+#short_left {
+    background: black;
+    width: 80px;
+    display: inline-block;
+}
+.div_score {
+    display: flex;
+    justify-content: center;
+}
+.div_scorelist {
+    border: 1px solid #fff;
+    width: 30%;
+    padding: 40px;
+    margin: 30px;
+}
+.div_scorelist div:nth-child(2) {
+    background: black;
+    line-height: 40px;
+    margin-top: 20px;
+}
+#text {
+    padding: 30px;
+}
+.div_control_panel {
+    background: tomato;
+    display: flex;
+    justify-content: center;
+}
+.div_control_panel > div {
+    padding: 30px;
+    margin: 30px;
+    text-align: center;
+    color: #fff;
+}
+button {
+    padding: 10px 20px;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getPerson() {
+            return {
+                firstName : "Jhon",
+                lastName : "Doe",
+                age : 37,
+                email : "Jhon@gmail.com",
+                city : "New York",
+                country : "USA"
+            }
+        }
+
+        let {firstName, lastName} = getPerson();
+        // let firstMame = getPerson().firstName; => 구조 분해 할당 전
+        // let lastName = getPerson().lastName; => 구조 분해 할당 전
+
+        let foods = ["🥪","🍕","🍔","🥐","🍜"];
+        let [aa, bb, ...cc] = foods;
+        // let aa = foods[0]; => 구조 분해 할당 전
+        // let bb = foods[1]; => 구조 분해 할당 전
+        console.log(aa, bb, cc);
+    </script>
+</body>
+</html>

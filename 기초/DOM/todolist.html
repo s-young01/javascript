@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box; list-style: none;}
+        #wrap {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #todolist {
+            height: 150px;
+            text-align: center;
+            background-color: lightseagreen;
+            padding: 20px;
+        }
+        #todolist h1 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        #todolist input {
+            border: none;
+            width: 60%;
+            height: 40px;
+            border-radius: 50px;
+        }
+        #todolist button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: #fff;
+            border-radius: 50%;
+            margin-left: 10px;
+            color: lightseagreen;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        #listul {
+            height: 100vh;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="todolist">
+            <h1>To Do List</h1>
+            <input type="text" id="list">
+            <button onclick="listPrint()">+</button>
+        </div>
+        <ul id="listul">
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        let input = document.querySelector("#list");
+        let ul = document.querySelector("#listul");
+        function listPrint() {
+            let list = document.createElement("li");
+            let listnode = document.createTextNode(input.value);
+            list.appendChild(listnode);
+            ul.appendChild(list);
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="1000" height="500"></canvas>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        ctx.moveTo(100,100);
+        ctx.lineTo(100,180);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(100,130);
+        ctx.lineTo(130,170);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(180,180);
+        ctx.lineTo(175,100);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(170,170);
+        ctx.lineTo(165,110);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(167,140);
+        ctx.lineTo(140,140);
+        ctx.stroke();
+
+        ctx.fillStyle = "lightpink";
+        let num = 50;
+        for (let i = 0; i <= 10; i++) {
+            ctx.fillRect(num + (i * 80),300,50,50);
+        }
+    </script>
+</body>
+</html>

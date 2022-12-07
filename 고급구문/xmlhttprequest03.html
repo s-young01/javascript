@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 객체 생성
+        const xhr = new XMLHttpRequest();
+        xhr.open("DELETE","https://jsonplaceholder.typicode.com/posts"); 
+        // 헤더 값 중 content-type 정의 
+        xhr.setRequestHeader("content-type","appllication/json;, charset=UTF-8");
+        xhr.send(); //요청전송
+        xhr.onload = ()=>{
+            // 정상적으로 응답 되면 status가 200
+            if(xhr.status === 200){
+                // 응답 데이터를 JSOND.parse 함수로 JSON객체로 변경
+                const res = JSON.parse(xhr.response)
+                console.log(res);
+            }else{
+                //에러발생
+                console.error(xhr.status, xhr.statusText); // 응답 상태와 응답 메세지를 출력
+            }
+        }
+        //영아! 언니가 적어봤어!! 우리 영이 이자리에서 고생하고있었구나..!!! 흑발 너무 잘어울려!!
+    </script>
+</body>
+</html>

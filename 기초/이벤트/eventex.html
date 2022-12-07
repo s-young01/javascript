@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        div {
+            width: 100%;
+            height: 200px;
+            background-color: lightcoral;
+            transition: 0.5s;
+        }
+        ul {
+            background-color: lightgreen;
+            display: flex;
+            align-items: center;
+            height: 100px;
+        }
+        ul li {
+            padding: 0 30px;
+            list-style: none;
+        }
+        .on {
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ul>
+    <div></div>
+    <script>
+        // list1에 마우스 올렸을 때 div의 class on을 지정
+        /*  
+        let lis = document.querySelector("li:first-child");
+        lis.addEventListener("mouseenter",function(v){
+            v = document.querySelector("div").style.height = "200px";
+        })
+        lis.addEventListener("mouseleave",function(i) {
+            i = document.querySelector("div").style.height = "0";
+        })
+         */
+        let li = document.querySelector("li:first-child");
+        let div = document.querySelector("div");
+        li.addEventListener("mouseenter", function(){
+            div.classList.add("on");
+        })
+        li.addEventListener("mouseleave", function(){
+            div.classList.remove("on");
+        })
+    </script>
+</body>
+</html>

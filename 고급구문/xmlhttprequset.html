@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //requset header / body 
+        //open("http메소드","경로") GET(**date x),POST(게시글 추가할떄), PUT(수정할때),FETCH, DELETE
+        //setRequestHeader("contend-type","application"/json) json 데이터 전송
+        //send(data)
+        //xhr.onload = () => {}
+        const xhr = new XMLHttpRequest(); //XMLHttpRequest 객체 생성!
+        //HTTP메소드, url정의
+        xhr.open("GET","https://jsonplaceholder.typicode.com/posts/1");
+        //헤더에 있는 값중 content-type 정의
+        xhr.setRequestHeader("content-type","appllication/json");
+        //요청 전송
+        xhr.send();
+        xhr.onload = () => {
+            if(xhr.status === 200){
+                //정상적으로 응답이 되면 200번
+                //xhr.respone => 응답데이터
+                //JSON.parse(json)=>json 형태를 자바스크립트에서 사용가능한
+                //객체 형태로 변경해서 반환
+                const res = JSON.parse(xhr.response);
+                console.log(res);     
+                   } else{
+                    //응답 상태번호와 응답메세지 출력
+                   console.log(xhr.status, xhr.statusText)
+                }
+            };
+    </script>
+</body>
+</html>

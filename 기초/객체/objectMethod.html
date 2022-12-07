@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student1 = {
+            name : "bella",
+            age : 20,
+            gender : "female"
+        }
+        // Object.keys(객체) : 해당 객체의 key를 배열로 바꿔줌
+        let result1 = Object.keys(student1);
+        console.log(result1);
+
+        // Object.values(객체) : 해당 객체의 value를 배열로 바꿔줌
+        let result2 = Object.values(student1);
+        console.log(result2);
+
+        // Object.entries(객체) : 해당 객체의 key, value를 (2차원)배열로 바꿔줌
+        let result3 = Object.entries(student1);
+        console.log(result3);
+
+        // Object.fromEntries(객체) : (2차원)배열을 다시 객체 타입으로 바꿔줌
+        let result4 = Object.fromEntries(result3);
+        console.log(result4);
+    </script>
+</body>
+</html>

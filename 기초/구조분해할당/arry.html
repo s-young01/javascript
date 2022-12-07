@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fruits = ["🍇","🍑","🥝","🍓","🍒"];
+        let [fruit1, fruit2, ...fruit3] = fruits;
+        console.log(fruit1);
+        console.log(fruit2);
+        console.log(fruit3);
+        let str1 = "green";
+        let str2 = "blue";
+        [str1, str2] = [str2, str1];
+        console.log(str1);
+        console.log(str2);
+        let strs = ["a","b","c"];
+        let [str3,,str4] = strs
+        console.log(str4);
+        let [name = prompt("이름을 입력하세요."), hobby = prompt("취미를 입력하세요")] = ["green"];
+        console.log(name);
+        console.log(hobby);
+    </script>
+</body>
+</html>

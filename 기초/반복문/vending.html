@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            A음료수 : 500원 <br/>
+            B음료수 : 700원 <br/>
+            C음료수 : 1000원 <br/>
+        </div>
+        <button onclick="inputMoney(100)">100</button>
+        <button onclick="inputMoney(500)">500</button>
+        <button onclick="inputMoney(1000)">1000</button>
+        <p id="money"></p>
+        <p id="select"></p>
+    </div>
+    <script>
+        // 버튼 클릭하면 money해당 버튼의 금액을 더해줌
+        // 금액은 id = "money"인 p요소 출력
+        // 금엑에 따라 살 수 있는 음료수 종류는 id = "select"인 p요소 출력
+        
+        let money = 0;
+        function inputMoney(inputM) {
+            money = money + inputM;
+            document.querySelector("#money").innerHTML = money;
+            selectCh();
+            console.log(`${inputM}을 클릭했습니다.`);
+            // money가 500이상일 때 A음료수 
+            // money가 700이상일 때 A,B음료수
+            // money가 1000이상일 때 A,B,C음료수 
+        }
+        function input500() {
+            money = money + 500;
+            document.querySelector("#money").innerHTML = money;
+            selectCh();
+            console.log("500을 클릭했습니다.");
+        }
+        function input1000() {
+            money = money + 1000;
+            document.querySelector("#money").innerHTML = money;
+            selectCh();
+            console.log("1000을 클릭했습니다.");
+        }
+        function selectCh() {
+            if (money >= 1000) {
+                selectMenu = "A음료수, B음료수, C음료수";
+            } else if (money >= 700) {
+                selectMenu = "A음료수, B음료수";
+            } else if (money >= 500) {
+                selectMenu = "A음료수";
+            } else {
+                selectMenu=  "못 사요";
+            }
+            document.querySelector("#select").innerHTML = selectMenu;
+        }
+    </script>
+</body>
+</html>

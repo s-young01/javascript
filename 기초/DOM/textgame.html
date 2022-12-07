@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        body {
+            text-align: center;
+            line-height: 1.6;
+        }
+        #header {
+            background-color: rgb(190, 170, 190);
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            font-size: 24px;
+        }
+        #text {
+            font-size: 36px;
+            font-weight: bold;
+            color: rgb(190, 170, 190);
+            padding: 20px 0;
+        }
+        input {
+            padding: 16px;
+        }
+        p {
+            padding: 10px;
+        }
+        button {
+            width: 200px;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        타자게임
+    </div>
+    <div>
+        <div id="text">
+            Game
+        </div>
+        <p><input type="text" id="inputText"></p>
+        <p>
+            남은시간 : <span id="time">0</span>초
+            점수 : <span id="score">0</span>점
+        </p>
+        <p><button id="gameBtn">게임시작</button></p>
+    </div>
+    <script>
+        // 변수선언
+
+        // 글자 화면
+        const displayText = document.querySelector("#text");
+        // input
+        const inputText = document.querySelector("#inputText");
+        // 시간
+        const timeText = document.querySelector("#time");
+        // 점수
+        const scoreText = document.querySelector("#score");
+        // 버튼
+        const gameBtn = document.querySelector("#gameBtn");
+
+        // 점수, 시간, 시간인터벌, 글자배열, 게임중 체크 변수 선언
+        let score = 0;
+        let time = 30;
+        let isPlaying;
+        let timeInterval;
+        let texts = ["red","blue","purple","yellow","white","black","green","navy"]; 
+        // 0~7 까지의 인덱스 길이 
+        let randomNum = Math.floor(Math.random() * texts.length);
+
+        // 버튼을 클릭하면 게임시작
+        // time값을 1초 지날 때 마다 1씩 작아진다 
+        // time이 0이 되면 게임종료
+        // 글자 화면에 글자배열 요소의 값이 랜덤하게 출력
+        // input에 주어진 단어와 같은 단어를 입력하면 점수가 10점씩 오름
+        // 글자화면 글자배열 요소의 값 다시 변경
+
+        // 버튼에 이벤트 연결 
+        gameBtn.addEventListener("click", function(){
+            // 게임 중이면 리턴됨
+            if(isPlaying) return;
+            gameBtn.innerHTML = "게임 중";
+            displayText.innerHTML = texts[randomNum];
+            // 게임 진행 중
+            isPlaying = true; 
+            timeText.innerHTML = time;
+            timeInterval = setInterval(timer,1000);
+        });
+        // 남은시간 1초씩 줄어들게 하는 함수
+        function timer() {
+            time > 0 ? time-- : isPlaying = false;
+            timeText.innerHTML = time;
+            if(!isPlaying) {
+                gameBtn.innerHTML = "게임종료";
+                gameBtn.disabled = true;
+                clearInterval(timeInterval);
+            }
+        }
+        // 
+        inputText.addEventListener("input", function() {
+            // input의 값과 displayText의 값이 일치하면 점수를 10점씩 더해줌
+            // display text값도 변경해줌
+            if(inputText.value === displayText.innerHTML) {
+                // score변수에 10을 더해서 score에 할당 
+                score += 10;
+                // 화면에 점수 부분 변경하기 
+                scoreText.innerHTML = score;
+                // 0~7까지 랜덤값 할당
+                randomNum = Math.floor(Math.random() * texts.length);
+                // 글자 화면에 글자를 변경
+                displayText.innerHTML = texts[randomNum];
+                // input에 입력된 값을 비우기 
+                inputText.value = "";
+            }
+            // (isPlaying이 false면 리턴)게임 중이 아닐 때 리턴
+            if(!isPlaying) return;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Bugers (name,price,size) {
+            this.name = name;
+            this.price = price;
+            this.size = size;
+        }
+        let bugers = [
+            new Bugers ('새우버거' , 5000 , 'big'),
+            new Bugers ('불고기버거', 4500, 'regular'),
+            new Bugers ('주니어불고기버거', 3500, 'small'),
+            new Bugers ('치즈버거', 5500, 'regular'),
+            new Bugers ('스테이크버거', 7000, 'big'),
+            new Bugers ('치킨버거', 5500, 'regular'),
+            new Bugers ('야채버거', 4500 ,'reaular'),
+            new Bugers ('주니어새우버거', 3000, 'small')
+        ];
+        console.log(bugers);
+
+        // 1. regular인 햄버거만 새로운 배열로 만드세요
+         let result = bugers.filter(bugers => bugers.size === "regular");
+         console.log(result);
+        // 2. 햄버거의 이름만 배열로 만드세요
+        let result2 = bugers.map(bugers => bugers.name);
+        console.log(result2);
+        // 3. 가격이 5000원 이상인 햄버거만 새로운 배열로 만드세요
+        let result3 = bugers.filter(bugers => bugers.price >= 5000);
+        console.log(result3);
+        // 4. 이름이 스테이크버거인 햄버거를 찾으세요
+        let result4 = bugers.find(bugers => bugers.name === "스테이크버거");
+        console.log(result4);
+    </script>
+</body>
+</html>

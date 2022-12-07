@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 배열 >
+        let fruits = ["🍓","🍋","🍏","🍑","🥝"];
+        console.log(fruits);
+        console.log(fruits[0]);
+        console.log(fruits[fruits.length-1]);
+        fruits[fruits.length] = "🍒";
+        console.log(fruits);
+        fruits[0] = "🍍";
+        console.log(fruits);
+        // 배열 메소드 
+        // push() -> 맨 끝 요소를 추가
+        // pop() -> 맨 끝 요소를 제거
+        // unshift() -> 맨 앞 요소를 추가 
+        // shift() -> 맨 앞 요소를 제거6t
+       /*  
+        fruits.push("🍐");
+        console.log(fruits);
+        fruits.pop();
+        console.log(fruits);
+        fruits.unshift("🍇");
+        console.log(fruits);
+        fruits.shift();
+        console.log(fruits); 
+        */
+
+        let arr = ["a","b","c","d","e"];
+        for(let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+       /* 
+       <for of문>
+        for (let i of 배열변수) {
+            console.log(i);
+        } 
+        */
+        for (let i of arr) {
+            console.log(i);
+        }
+        /* 
+        <forEach문> 
+        배열변수.forEach(i => {
+        })
+         */
+        //  => 는 함수자리
+        arr.forEach(i=>{
+            console.log(i);
+        })
+    </script>
+</body>
+</html>

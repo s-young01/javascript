@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        try {
+            console.log("try블럭 시작");
+            // throw : 의도적으로 에러를 발생시킴
+            throw new SyntaxError("구문이 틀렸어요 : 다시 작성하세요");
+            console.log("try블럭 끝");
+        }
+        catch(err) {
+            console.log(err.name); // 에러 메소드 .name : 오류의 이름
+            console.log(err.message); // 에러 메소드 .message : 오류의 메세지  
+        }
+        finally {
+            console.log("항상 실행");
+        }
+        console.log("계속 동작");
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        // 점프게임 만들기 
+        // 사각현 2개 그림
+        // 점프 기능
+        // 충돌 했을때
+
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // 캔버스 크기 설정 
+        canvas.width = window.innerWidth - 200;
+        canvas.height = window.innerHeight - 200;
+
+        // 변수 정의
+        let animation;
+        let timer = 0;
+        let jump = false;
+        let jumptimer = 0;
+        
+        // 주인공 객체 (한 개 이기 때문)
+        let gameU = {
+            x : 30,
+            y : 300,
+            width : 50,
+            height : 50,
+            // 화면에 그려주는 메소드 
+            draw() {
+                ctx.fillStyle = "green";
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
+        }
+        // 메소드 호출 
+        gameU.draw();
+        // 장애물 배열 (여러 개 이기 때문)
+        let obstacleArr = [];
+        // 장애물 클래스 
+        class Obstacle {
+            constructor() {
+                this.x = 900;
+                this.y = 300;
+                this.width = 50;
+                this.height = 50;
+            }
+            // 화면에 그려주는 메소드 
+            draw() {
+                ctx.fillStyle = "lightcoral";
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
+        }
+        // 재귀 함수 => 안에 있는 함수가 밖에 있는 함수를 계속 호출해줌 
+        function startFrame() {
+            timer++; 
+            // console.log(timer);
+            // 캔버스 지우기 
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            // requestAnimationFrame(함수이름) : 1초에 60번 실행시킴 (180번 = 3초)
+            animation = requestAnimationFrame(startFrame);
+            // 3초마다 장애물 생성 하고 싶음
+            // timer가 180번이 될 때마다 장애물 생성
+            if(timer % 180 == 0) {
+                let obs = new Obstacle();
+                obstacleArr.push(obs);
+            }
+            // 배열을 돌려서 장애물들을 계속 나열해줌 
+            obstacleArr.forEach((item, index, arr) => {
+                // 왼쪽으로 이동하다가
+                // 장애물의 x좌표가 -25보다 작으면 배열에서 제거 
+                if(item.x < -25) {
+                    // .splice(index,개수) : 배열에서 index에 몇 개를 제거할건지 
+                    arr.splice(index,1);
+                }
+                // 아니면 1씩 감소됨  
+                item.x--;
+                // 장애물 그려주기
+                item.draw();
+                // 충돌 확인하는 함수 호출
+                crushCeck(gameU, item);
+            })
+            // 스페이스 키 눌렀을 때 올라갔다가 내려오기 
+            if(jump) {
+                gameU.y -= 2;
+                jumptimer++;
+            }else {
+                if(gameU.y < 300) gameU.y += 5;
+            }
+            if(jumptimer > 80) {
+                jump = false;
+                jumptimer = 0;
+            }
+            // 주인공 그려주기 
+            gameU.draw();
+        }
+        startFrame();
+
+        // 충돌 확인하는 함수 
+        function crushCeck(user, item) {
+            // 이 범위에 들어서면 충돌 !
+            let x = item.x - (user.x + user.width);
+            let y = item.y - (user.y + user.height / 2);
+            // 아이템의 x좌표 에서 주인공의 x좌표를 뺀 값이 0보다 작거나 같을 때 
+            if(x <= 0 && y <= 0) {
+                console.log("충돌");
+                // 멈춤
+                cancelAnimationFrame(animation);
+            }
+        }
+        // 키 이벤트 
+        window.addEventListener("keydown", (e) => {
+            if(e.code == "Space") {
+                jump = true;
+                console.log(jump);  
+            }
+        })
+    </script>
+</body>
+</html>

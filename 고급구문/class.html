@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Dog {
+            constructor(name, age, color) {
+                this.name = name;
+                this.age = age;
+                this.color = color;
+            }
+            sound() {
+                console.log("왕왕");
+            }
+        }
+        let dog1 = new Dog("구름",3,"흰색");
+        // 객체 구조 분해 할당
+        let {sound} = dog1;
+        console.log(dog1.sound);
+    </script>
+</body>
+</html>

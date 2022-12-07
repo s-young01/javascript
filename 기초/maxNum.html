@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numList = [];
+        for(let i = 0; i < 10; i++) {
+            let randNum = Math.floor(Math.random() * 180) + 1;
+            // numList에 랜덤으로 돌린 randNum배열이 담김 
+            numList.push(randNum);
+        }
+        console.log(numList);
+        let maxNum = numList[0];
+        for(let i = 1; i < numList.length; i++) {
+            // if(maxNum < numList[i]) {
+            //     maxNum = numList[i];
+            // }
+            // 삼항 연산자로 바꾸어주기 
+            maxNum = numList[i] > maxNum ? numList[i] : maxNum;
+        }
+        console.log(maxNum);
+    </script>
+</body>
+</html>

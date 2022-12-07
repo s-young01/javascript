@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        #wrap {
+            position: relative;
+        }
+        #header {
+            background-color: lightgray;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+        #header h1 {
+            color: #fff;
+            padding-left: 800px;
+        }
+        #header .span {
+            width: 50px;
+            height: 50px;
+            margin-left: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        #header .span span {
+            display: block;
+            border: 3px solid #fff;
+        }
+        #menu {
+            width: 200px;
+            background-color: lightgoldenrodyellow;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: -200px;
+            transition: 0.5s;
+        }
+        #menu p {
+            border-bottom: 1px solid #ccc;
+            padding: 20px 20px;
+            text-align: end;
+        }
+        #menu ul li {
+            list-style: none;
+            border-bottom: 1px solid #ccc;
+            padding: 20px 0;
+            text-align: center;
+        }
+        #menu.on {
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="span">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <h1>Logo</h1>
+        </div>
+        <div id="menu">
+            <p class="close">메뉴 닫기</p>
+            <ul>
+                <li>list 1</li>
+                <li>list 2</li>
+                <li>list 3</li>
+                <li>list 4</li>
+                <li>list 5</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        let clo = document.querySelector(".close");
+        let sp = document.querySelector(".span");
+        let lis = document.querySelector("#menu");
+        sp.addEventListener("click" , function(){
+            lis.classList.add("on");
+        })
+        clo.addEventListener("click", function(){
+            lis.classList.remove("on");
+        })
+    </script>
+</body>
+</html>

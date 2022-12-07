@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>가격 <input type="text" id="price" name="price" /></p>
+    <p>수량
+        <select name="number" id="number">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+        </select>
+    </p>
+    <p>가격 <input type="text" id="totalprice" name="totalprice" /></p>
+    <script>
+        // 가격 input
+        let priceInput = document.querySelector("#price");
+        // 수량 선택 select
+        let selNumber = document.querySelector("#number");
+        // 총 가격 input
+        let totalPrice = document.querySelector("#totalprice");
+        // 가격 input값을 number타입으로 변경
+        let priceNumber; // -> 전역변수로 만들어줌
+        priceInput.addEventListener("input", function(){
+            // 기본 값이 문자열  => 숫자열로 형변환해줌
+            // this = priceNumber 
+            priceNumber = Number(this.value);
+            // priceNumber가 숫자가 아닐 때 (문자를 입력했을 때)
+            if (isNaN(priceNumber)) {
+                // 돌려보냄 (실행x)
+                return;
+            } else {
+                sum();
+            }
+        });
+        function sum() {
+            // 총 가격 input에 나올 변수 
+            // 총 가격 = 처음 입력한 가격 input 값 * 수량 선택 select의 value값
+            let total = priceNumber * selNumber.value;
+            totalPrice.value = total;
+        }
+        // select의 value가 변경되었을 때 sum함수 실행
+        selNumber.addEventListener("change", sum);
+    </script>
+</body>
+</html>

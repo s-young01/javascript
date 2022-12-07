@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr1 = ["🌮","🍕"];
+        let arr2 = ["😊","😂","🤣"];
+        let arr3 = arr1.concat(arr2);
+        console.log(arr3);
+        let arr4 = arr3.slice(3);
+        console.log(arr4);
+        let fruits = ["Banana","Orange","Apple","Mango"];
+        fruits.sort();
+        console.log(fruits);
+        // 숫자정렬(오름차순) => 배열변수.sort(function(a,b){return a - b});
+        // 숫자정렬(내림차순) => 배열변수.sort(function(a,b){return b - a});
+        let num = [10,6,9,7,2,5,11];
+        num.sort(function(a,b){return a - b});
+        console.log(num);
+
+        let arr5 = ["a","b","c"];
+        arr5.reverse();
+        console.log(arr5);
+
+        let result2 = arr5.includes("e");
+        console.log(result2);
+    </script>
+</body>
+</html>

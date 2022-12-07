@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function getDataPromise(){
+      // 프로미스 생성
+      return new Promise((resolve,reject)=>{
+        const xhr= new XMLHttpRequest();
+        xhr.open("GET","https://jsonplaceholder.typicode.com/aaa/1");
+        xhr.setRequestHeader("content-type","apllication/json");
+        xhr.send();
+        xhr.onload=()=>{
+          if(xhr.status===200){
+            const res= JSON.parse(xhr.response);
+            resolve(res);
+          }else{
+            console.error(xhr.status, xhr.statusText);
+            reject(new Error(xhr.status));
+          }
+        }
+      })
+    }
+
+    getDataPromise().then((res)=>{
+      console.log(res);
+    }).catch((error)=>{
+      console.error(error);
+    }).finally(()=>{
+      console.log("end");
+    })
+  </script>
+</body>
+</html>

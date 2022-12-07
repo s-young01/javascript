@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="join.php" method="get" onsubmit="return formCheck()">
+        <p>아이디 <input type="text" id="userId" name="userId" /></p>
+        <p>비밀번호 <input type="text" id="userPass" name="userPass"/></p>
+        <p><button type="submit">전송</button></p>
+    </form>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(e){
+            // 기본 이벤트 제거
+            e.preventDefault();
+        })
+        let userInput = document.querySelector("#userId");
+        let passInput = document.querySelector("#userPass");
+        function formCheck() {
+            console.log("폼을 확인합니다.");
+            // 아이디 입력 시 빈칸이 아니고, 글자 수 5개 이상인지 확인
+            if (userInput.value.length >= 5) {
+                if (passInput.value.length >= 5) {
+                    let newArr = passInput.value.split("");
+                    console.log(newArr);
+                    let isNum = false;
+                    newArr.forEach (ch => {
+                        // 숫자인지 확인하기
+                        if (!isNaN(Number(ch))) {
+                            isNum = true;
+                        }
+                    })
+                    if (isNum) {
+                        console.log("숫자를 포함하고 있습니다.");
+                    } else {
+                        console.log("숫자를 포함하고 있지 않습니다.");
+                    }
+                } else {
+                    console.log("비밀번호 글자 수가 부족합니다.");
+                }
+            } else {
+                console.log("아이디 글자 수가 부족합니다.");
+            }
+            // 비밀번호 입력 시 빈칸이 아니고, 글자 수 5개 이상
+            // 숫자, 소문자, 대문자 하나 이상 포함되어 있는지 확인
+            
+        }
+    </script>
+</body>
+</html>

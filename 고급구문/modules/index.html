@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- log함수를 쓰기 위해 스크립트 type을 module로 지정해야 함 -->
+    <script type="module">
+        // log.js에서 export지정된 함수 중 log함수만 import함
+        import {log,comGreen,error} from "./log.js";
+        log("배고프다...");
+    </script>
+</body>
+</html>

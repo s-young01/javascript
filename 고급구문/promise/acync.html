@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // async : 함수 앞에 붙이면 비동기가 된다(promise로 반환됨)
+        // await : 비동기를 실행해서 결과가 올 때 까지 기다림(async가 있는 함수 안에서만 작동됨)
+        // async function getName() {
+        //     // new Error() : error객체 생성
+        //     return Promise.reject(new Error("error..."));
+        // }
+        // getName().then(res => {
+        //     console.log(res);
+        // }).catch(res => {
+        //     console.log(res);
+        // })
+
+        function getName() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(name);
+                },1000)
+            })
+        }
+        // getName("green").then(res => {
+        //     console.log(res);
+        // })
+        async function showName() {
+            const result = await getName("green");
+        }
+    </script>
+</body>
+</html>

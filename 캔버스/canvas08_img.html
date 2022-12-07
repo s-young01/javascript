@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="1000" height="800"></canvas>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        const imgElem = new Image();
+        imgElem.src = "img/img_lights1.jpg";
+        // load => 다 불러왔을 때 실행
+        imgElem.addEventListener("load", function(){
+            // ctx.drawImage(imgElem,50,50);
+            // ctx.drawImage(imgElem,300,300);
+            
+            // 이미지 타일 처럼 나타내기 
+            for(let i = 0; i < 4; i++) {
+                for(let j = 0; j < 3; j++) {
+                    ctx.drawImage(imgElem, j * 100, i * 70, 100,70);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

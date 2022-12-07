@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        div {
+            width: 100%;
+            height: 100vh;
+        }
+        div:nth-child(2) {
+            background-color: lightcoral;
+        }
+        div:nth-child(3) {
+            background-color: lightsalmon;
+        }
+        div:nth-child(4) {
+            background-color: lightpink;
+        }
+        #menu {
+            position: fixed;
+            width: 200px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #menu li {
+            list-style: none;
+            color: #fff;
+            padding-left: 30px;
+            line-height: 40px;
+            transition: 0.5s;
+            font-size: 24px;
+        }
+        #menu li.on {
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+    </ul>
+    <div>box1</div>
+    <div>box2</div>
+    <div>box3</div>
+    <script>
+        let lis = document.querySelectorAll("li");
+        // 화면 100% 높이 값을 wh에 할당
+        let wh = window.innerHeight;
+        // li클릭하면 스크롤 위치를 해당 위치로 이동
+        // window.scrollTo({top:100px, behavior: "smooth"});
+        /* 
+        lis[0].addEventListener("click", function(){
+            window.scrollTo({top: 0, behavior: "smooth"});
+        })
+        lis[1].addEventListener("click", function(){
+            window.scrollTo({top: wh, behavior: "smooth"});
+        })
+        lis[2].addEventListener("click", function(){
+            window.scrollTo({top: 2 * wh, behavior: "smooth"});
+        })
+         */
+
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener("click", function(){
+            window.scrollTo({top: i * wh, behavior: "smooth"});
+        })
+        }
+        // 스크롤 값에 따라서 해당하는 li에게 크래스on을 지정
+        // 0~1000미만은 1번째 li에 on클래스 지정
+        // 1000~2000미만은 2번째 li에 on클래스 지정
+        // 2000~ 3번째 li에 on클래스 지정
+        document.addEventListener("scroll", function(){
+            let sct = document.documentElement.scrollTop;
+            console.log(sct);
+            // sct의 값이 0이상(크거나 같다) 이고,
+            // wh보다 미만일 때(작을 때) menu1에 on클래스 지정
+            /* 
+            if (sct >= 0 && sct < wh) {
+                lis.forEach(li => li.classList.remove("on"))
+                lis[0].classList.add("on");
+            } 
+            if (sct >= wh && sct < wh * 2) {
+                lis.forEach(li => li.classList.remove("on"))
+                lis[1].classList.add("on");
+            }
+            if (sct >= wh * 2 && sct < wh * 3) {
+                lis.forEach(li => li.classList.remove("on"))
+                lis[2].classList.add("on");
+            }
+             */
+            for (let i = 0; i < lis.length; i++) {
+                if (sct >= wh * i && sct < wh * (i + 1)) {
+                    lis.forEach(li => li.classList.remove("on"));
+                    lis[i].classList.add("on");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

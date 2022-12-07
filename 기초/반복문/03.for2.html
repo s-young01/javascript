@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <!-- <li>
+                <h3>2단 입니다.</h3>
+                <ul>
+                    <li>2*1=2</li>
+                    .
+                    .
+                </ul>
+            </li> -->
+        </ul>
+    </div>
+    <script>
+        // 2단을 만들어서 ul에 넣기
+        let li = "";
+        for (let i = 2; i < 10; i++) {
+            li = li + `<li>
+                <h3>${i}단 입니다.</h3>
+                <ul>`;
+                    for (let j = 1; j < 10; j++) {
+                        li = li + `<li>${i} * ${j} = ${i * j}</li>`;
+                    }
+            li = li + `</ul></li>`;
+        }
+        document.querySelector("div > ul").innerHTML = li;
+    </script>
+</body>
+</html>

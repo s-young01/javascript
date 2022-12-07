@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 기본this => window를 바인딩
+        // 객체.메소드 => this는 객체를 바인딩
+        // DOM에 이벤트 발생 => this는 이벤트를 발생시킨 DOM을 바인딩
+        let stu = {
+            name : "gg",
+            age : 30
+        }
+        function printName() {
+            console.log(this.name);
+        }
+        function updateObj(name,age) {
+            this.name = name;
+            this.age =age;
+        }
+        //.call을 붙임으로 인해 함수안에 있는 this가 객체를 가르킴 
+        printName.call(stu);
+        updateObj.call(stu, "aaa", 20);
+        console.log(stu);
+        updateObj.apply(stu, ["bbb", 30]);
+        console.log(stu);
+
+        const numArr = [1,2,3,4,5];
+        // apply를 붙이면 스프레드 구문 굳이 안 써도 됨 (알아서 배열을 펼쳐줌)
+        // => Math.max.apply(null, [1,2,3,4,5])
+        let maxNum = Math.max.apply(null, numArr);
+        // => Math.max.apply(null, 1,2,3,4,5)
+        let maxNum2 = Math.max.call(null, ...numArr);
+        console.log(maxNum);
+        console.log(maxNum2);
+
+        const aa = {
+            x : 50,
+            getX : function() {
+                return this.x; // 이때 this는 window를 바인딩 함 
+            }
+        }
+        const newFun = aa.getX;
+        const newFun2 = newFun.bind(aa); // 매개변수 자리에 담겨있지만 함수임 
+        console.log(newFun()); // 콘솔에는 undefined찍힘 
+        console.log(newFun2());
+    </script>
+</body>
+</html>

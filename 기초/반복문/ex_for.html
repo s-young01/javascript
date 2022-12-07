@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <!-- 
+        <p>*</p>
+        <p>**</p>
+        .
+        . -->
+    </div>
+    <div id="div2">
+
+    </div>
+    <script>
+         let star = "";
+         for(let i = 0; i < 5; i++) {
+            star = star + "<p>";
+                for(let j = 0; j <= i; j++) {
+                    star = star + "*";
+                }
+            star = star + "</p>";
+            console.log(star);
+         }
+         document.querySelector("div").innerHTML = star;
+
+        let star2 = "";
+        for(let i = 0; i < 5; i++) {
+            star2 = star2 + "<p>";
+                for(let j = 4; j >= i; j--) {
+                    // for (let j = 0; j < (5 - i); j++)
+                    star2 = star2 + "*";
+                }
+            star2 = star2 + "</p>";
+            console.log(star2);
+        }
+        document.querySelector("#div2").innerHTML = star2;
+    </script>
+</body>
+</html>

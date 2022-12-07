@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        #wrap {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #listheader {
+            background: linear-gradient(to left, #a18cd1 0%, #fbc2eb 100%);
+            text-align: center;
+            padding-bottom: 30px;
+        }
+        #listheader div {
+            display: flex;
+            justify-content: center;
+        }
+        #listheader h1 {
+            color: #fff;
+            padding-top: 40px;
+        }
+        #listheader input {
+            width: 70%;
+            height: 40px;
+            border-radius: 20px;
+            border: 0;
+            outline: 0;
+            padding: 20px;
+        }
+        #listheader button {
+            background: transparent;
+            border: 0;
+            color: #fff;
+            margin-left: 20px;
+        }
+        #listheader button i {
+            font-size: 36px;
+        }
+        li {
+            list-style: none;
+            line-height: 50px;
+            padding: 0 10%;
+            background: #eee;
+        }
+        li:hover {
+            background: #ddd;
+        }
+        li span {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="listheader">
+            <h1>To Do List</h1>
+            <div>
+                <input type="text" id="listinput">
+                <button><i class="fa fa-plus-circle"></i></button>
+            </div>
+        </div>
+        <div id="todoList">
+            <ul id="listUl">
+                <!-- li들을 스크립트로 넣기 -->
+            </ul>
+        </div>
+    </div>
+    <script>
+        const btn = document.querySelector("button");
+        const input = document.querySelector("input");
+        const ul = document.querySelector("ul");
+        btn.addEventListener("click", addList);
+
+        // li를 추가하는 함수
+        function addList() {
+            // input.value가 false => true (false일때 실행됨)
+            // input.value가 빈 문자열일 때(false) 실행
+            if(!input.value) {
+                return;
+            }
+            // input의 값을 litext에 할당
+            let litext = input.value;
+            // li요소 만들기
+            let li = document.createElement("li");
+            // li에 내용 컨텐츠 넣기 
+            li.innerHTML = `${litext}<span>X</span>`;
+            // li를 ul에 (마지막 요소로)추가하기
+            ul.appendChild(li);
+            input.value = "";
+            spanEvent();
+        }
+        // span요소에 이벤트 연결 해주는 함수
+        function spanEvent() {
+            let spans = document.querySelectorAll("li span");
+            if (!spans) {return};
+            spans.forEach(span => {
+                span.addEventListener("click", function() {
+                    this.parentElement.remove();
+                    console.log(this);
+                })
+            })
+        }
+    </script>
+</body>
+</html>

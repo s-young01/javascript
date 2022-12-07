@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 콜백함수 : 함수를 호출할 때 함수를 받아서 전달해 줌 
+        const myfun1 = (callback) => {
+            setTimeout(function(){
+                console.log("1번 주문완료");
+                callback();
+            },1000)
+        }
+        const myfun2 = (callback) => {
+            setTimeout(function(){
+                console.log("2번 주문완료");
+                callback();
+            },2000)
+        }
+        const myfun3 = (callback) => {
+            setTimeout(function(){
+                console.log("3번 주문완료");
+                callback();
+            },3000)
+        }
+        myfun1(function(){
+            myfun2(function(){
+                myfun3(function(){
+                    console.log("끝");
+                })
+            })
+        })
+    </script>
+</body>
+</html>

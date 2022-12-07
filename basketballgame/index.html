@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="/game1.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <!-- 점수판 -->
+        <div class="div_scoreboard">
+            <div class="div_short_left">
+                <span>남은 슛 횟수</span>
+                <span id="short_left">0</span>
+            </div>
+            <div class="div_score">
+                <div class="div_scorelist"> 
+                    <div>컴퓨터</div>
+                    <div id="com_score">0</div>
+                </div>
+                <div class="div_scorelist">
+                    <div>사람</div>
+                    <div id="user_score">0</div>
+                </div>
+            </div>
+            <div id="text">컴퓨터부터 시작합니다.</div>
+        </div>
+        <!-- 조작부 -->
+        <div class="div_control_panel">
+            <div>
+                <div>컴퓨터</div>
+                <button class="com_btn" onclick="onComShoot()">슛 하기</button>
+            </div>
+            <div>
+                <div>사용자</div>
+                <button class="user_btn" disabled onclick="onUserShoot(2)">2점 슛</button>
+                <button class="user_btn" disabled onclick="onUserShoot(3)">3점 슛</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

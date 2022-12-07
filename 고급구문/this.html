@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <li onclick="printLi(this)">list1</li>
+    <li onclick="printLi(this)">list2</li>
+    <li onclick="printLi(this)">list3</li>
+    <li onclick="printLi(this)">list4</li>
+    <select name="userNum" id="userNum" onchange="selectFun(this)">
+        <option value="1">1입니다.</option>
+        <option value="2">1입니다.</option>
+        <option value="3">1입니다.</option>
+    </select>
+    <script>
+        function printLi(li) {
+            console.log(li.innerHTML);
+        }
+        function selectFun(select) {
+            console.log(select.value);
+        }
+        let person = {
+            firstMame : "Jhon",
+            lastName : "Doe",
+            fullName : function() {
+                 // " " => 띄어쓰기 해줌
+                return this.firstMame + " " + this.lastName;
+            }
+        }
+        console.log(person.fullName());
+
+        // rest(나머지) parameter
+        function add(...rest) {
+            let sum = 0;
+            rest.forEach(num => {
+                sum = sum + num;
+            })
+            return sum;
+        }
+        let result1 = add(1,2,3);
+        let result2 = add(1,2,3,4);
+        let result3 = add(1,2,3,4,5,6);
+        console.log(result1);
+        console.log(result2);
+        console.log(result3);
+
+        // const hello3 = (name) => {return"hello" + " " + name};
+        // const hello3 = name => "hello" + " " + name;
+        const hello3 = name => `hello ${name}`; // 백틱 써주기
+        console.log(hello3("aa"));
+
+        let str1 = "green";
+        console.log("안녕하세요" + str1 + "씨");
+        console.log(`안녕하세요 ${str1} 씨`);
+    </script>
+    
+</body>
+</html>

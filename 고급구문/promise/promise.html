@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // promise 프로듀서
+        let promise = new Promise((resolve, reject) => {
+            console.log("수행 중.....");
+            setTimeout(() => {
+                reject("error");
+            },2000)
+        });
+        // promise 컨슈머
+        // 성공했을 때 then을 통해서 받음
+        promise.then(value => {
+            console.log(value);
+        // 실패했을 때 catch를 통해 받음
+        }).catch(error => {
+            console.log(error);
+        })
+        // 성공,실패 상관없이 받음
+        .finally(() => {
+            console.log("끝났어요");
+        })
+        console.log("하하하");
+    </script>
+</body>
+</html>

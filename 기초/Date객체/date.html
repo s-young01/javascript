@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            text-align: center;
+            font-size: 58px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span id="hours">시간</span> : <span id="minutes">분</span>
+        : <span id="second">초</span>
+    </div>
+    <script>
+        let now = new Date();
+        let nowyear = now.getFullYear();
+        let nowmonth = now.getMonth() + 1;
+        let nowdate = now.getDate();
+        console.log(`현재 년도는 ${nowyear}이고, 달은 ${nowmonth}이고 일은 ${nowdate}입니다.`);
+        let nowDateString = now.toLocaleDateString();
+        let nowTimeString = now.toLocaleTimeString();
+        console.log(nowDateString);
+        console.log(nowTimeString);
+        hours.innerHTML = now.getHours();
+        minutes.innerHTML = now.getMinutes();
+        second.innerHTML = now.getSeconds();
+        setInterval (function(){
+            let now = new Date();
+            minutes.innerHTML = now.getMinutes();
+            second.innerHTML = now.getSeconds();
+        }, 1000)
+    </script>
+</body>
+</html>

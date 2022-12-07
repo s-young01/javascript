@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 300px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    <div></div>
+    <button onclick="Bg('pink')">pink색상</button>
+    <button onclick="Bg('red')">red색상</button>
+    <button onclick="Bg('blue')">blue색상</button>
+    <button onclick="Bg('green')">green색상</button>
+    <script>
+        function Bg (bgcolor) {
+            document.querySelector('div').style.background = bgcolor;
+        }
+    </script>
+    -->
+    <!-- button onclick = "이름()" 여기서 ()는 인수  -->
+    <div></div>
+    <button onclick="chbg('pink')">pink색상</button>
+    <button onclick="chbg('red')">red색상</button>
+    <button onclick="chbg('blue')">blue색상</button>
+    <button onclick="chbg('green')">green색상</button>
+    <button onclick="bgcolorView()">배경색상알기</button>
+    <script>
+        // 1. 버튼을 클릭할 경우 div의 배경색을 변경
+        // * 자바스크립트 스타일 변경 : object.style.background = "green"
+        // * button onclick = "" 
+        //  div의 배경색상을 경고창에 출력
+        function chbg(bgcolor) {
+            document.querySelector('div').style.background = bgcolor;
+        }
+        function bgcolorView() {
+            let div = document.querySelector('div');
+            let bgcolor = window.getComputedStyle(div).getPropertyPriority('background-color');
+            alert(bgcolor);
+        }
+        // 스타일로 나오게 하는 방법
+        // window.getComputedStyle(태그명).getPropertyPriority('스타일');
+    </script>
+</body>
+</html>

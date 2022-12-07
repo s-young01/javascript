@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let set = new Set();
+        let person1 = {name : "재훈"};
+        let person2 = {name : "수민"};
+        let person3 = {name : "세영"};
+
+        set.add(person1);
+        set.add(person2);
+        set.add(person3);
+        set.add(person1);
+        set.add(person2);
+
+        console.log(set.size);
+        console.log(set);
+
+        let set2 = new Set(["a","b","c","d","e","d","e"]);
+        console.log(set2);
+        
+        let numArr = [1,2,3,4,5,1,2,3,7];
+        let set3 = new Set(numArr);
+        let newArr = [...set3]; // [1,2,3,4,5] 하나씩 적는 것과 같음 (스프레드 구문)
+        console.log(newArr);
+        console.log(newArr);
+    </script>
+</body>
+</html>

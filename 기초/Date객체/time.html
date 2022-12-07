@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Date 객체를 숫자로 변경해서 시간 차 측정하기
+        let start = new Date();
+        for (let i = 0; i < 100000000; i++) {
+            let something = i * i;
+        }
+        let end = new Date();
+        let time = end - start;
+        console.log(`반복문을 도는 데 ${time} ms가 걸렸습니다`);
+
+        let firstday = new Date("2022-11-20");
+        let nowday = new Date();
+        let todayTime = nowday.getTime();
+        let firstTime = firstday.getTime();
+        let dayday = Math.floor((todayTime - firstTime) / (1000 * 60 * 60 * 24));
+        console.log(`2022년 10월 14일 부터 ${dayday}일이 되었습니다.`);
+
+        let someDay = new Date(2022, 9, 10); //2022-10-10
+        someDay.setDate(someDay.getDate() + 100);
+        console.log(someDay.toLocaleDateString());
+    </script>
+</body>
+</html>

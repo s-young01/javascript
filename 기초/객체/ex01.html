@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 생성자 함수 만들기 
+        function Calculators (num1, num2) {
+            this.num1 = num1;
+            this.num2 = num2;
+            this.sum = function() {
+                return this.num1 + this.num2;
+            }
+            this.mul = function() {
+                return this.num1 * this.num2;
+            }
+        }
+        let calculator = new Calculators(10,20); 
+        let result1 = calculator.sum();
+        let result2 = calculator.mul();
+        console.log(`숫자 두 개의 합은 ${result1} 이다.`);
+        console.log(`숫자 두 개의 곱은 ${result2} 이다.`);
+
+        // 객체 안에 함수 할당하기 (= 메소드)
+        let calculator2 = {
+            num1 : 10,
+            num2 : 30,
+            sum() {
+                return this.num1 + this.num2;
+            },
+            mul () {
+                return this.num1 * this.num2;
+            }
+        }
+        console.log(calculator2.sum());
+        console.log(calculator2.mul());
+
+        // 생성자 함수 만들기 (startNum 프로퍼티, 값을 입력받는 프로퍼티 / read()메소드)
+        // read()메소드에 startNum + 입력값 더해서 리턴 해주기
+        /* 
+        function Accumulators (startNum, userNum) {
+            this.startNum = startNum;
+            this.userNum = parseInt(prompt("숫자를 입력하세요."));
+            this.read = function() {
+                return this.startNum + this.userNum;
+            }
+        }
+        let accumulator = new Accumulators(10);
+        let resualt = accumulator.read();
+        console.log(`숫자 두 개의 합은 ${resualt} 이다.`); 
+        */
+
+        
+        function Accumulators (startNum) {
+            this.startNum = startNum;
+            this.read = function() {
+                this.startNum = this.startNum + Number(prompt("숫자를 입력하세요."));
+                return this.startNum;
+            }
+        }
+        let acc = new Accumulators (10);
+        console.log(acc.read());
+
+        // Students 생성자 함수 만들기 (name, age score1, score2 / total()메소드)
+        // score1 + score2 더한 값을 리턴 해주기
+        // student1 객체 ("green", 22, 85, 75)
+        // student2 객체 ("blue", 25, 80, 60)
+        function Students (name, age, score1, score2) {
+            this.name = name;
+            this.age = age;
+            this.score1 = score1;
+            this.score2 = score2;
+            this.total = function() {
+                return this.score1 + this.score2;
+            }
+        }
+        let student1 = new Students("green", 22, 85, 75);
+        let student2 = new Students("blue", 25, 80, 60);
+        let result3 = student1.total();
+        let result4 = student2.total();
+        console.log(`학생1의 점수 합계는 ${result3} 이고, 학생2의 점수 합계는 ${result4} 이다.`);
+    </script>
+</body>
+</html>

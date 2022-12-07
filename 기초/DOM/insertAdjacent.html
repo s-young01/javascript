@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- beforebegin 자리 -->
+    <div id="box">
+        <!-- afterbegin 자리 -->
+    <h3>하하하하</h3>
+    <!-- beforeend 자리 -->
+    </div>
+    <!-- afterend 자리 -->
+    <script>
+        const box = document.querySelector("#box");
+        box.insertAdjacentHTML('beforebegin','<h2>안녕하세요</h2>');
+        box.insertAdjacentHTML('afterbegin','<h2>안녕하세요</h2>');
+        box.insertAdjacentHTML('beforeend','<h2>안녕하세요</h2>');
+        box.insertAdjacentHTML('afterend','<h2>안녕하세요</h2>');
+
+        
+    </script>
+</body>
+</html>

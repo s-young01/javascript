@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="1000" height="500"></canvas>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // ctx.beginPath();
+        // ctx.arc(100,400,30,0,120 * Math.PI / 180);
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.arc(200,400,30,0,180 * Math.PI / 180);
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.arc(300,400,30,0,220 * Math.PI / 180);
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.arc(400,400,30,0,280 * Math.PI / 180);
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.arc(500,400,30,0,320 * Math.PI / 180);
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.arc(600,400,30,0,360 * Math.PI / 180);
+        // ctx.stroke();
+
+        // for문 이용해서 돌리기 !
+        let x = 80;
+        let c = 36;
+        for(let i = 0; i <= 10; i++) {
+            x = 80 * i;
+            c = 36 * i; 
+            ctx.beginPath();
+            ctx.arc(x, 400, 30, 0, c * Math.PI / 180);
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

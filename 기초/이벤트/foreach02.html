@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ul>
+    <script>
+        // forEach : 함수를 받아서 함수를 처리해줌
+        // 배열함수.forEach(function(a, b, c){})일 때
+        // a는 배열의 값, b는 배열의 번호, c는 배열 자신이 담김.
+        let lis = document.querySelectorAll("li");
+        console.log(lis);
+        lis.forEach((li, index) => {
+            li.style.background = "red"
+            console.log(index);
+        });
+    </script>
+</body>
+</html>

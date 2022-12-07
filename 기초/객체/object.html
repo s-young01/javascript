@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj1 = {};
+        let obj2 = new Object;
+        obj1.name = "green";
+        obj1.age = 30;
+        obj2.name = "blue";
+        obj2.age = 26;
+        console.log(obj1);
+        console.log(obj2);
+        let arr = [1,2,3];
+        console.log(arr);
+
+        let obj3 = {
+            name : "pink",
+            age : 30,
+        }
+        console.log(obj3["age"]);
+
+        function print(name,age){
+            console.log(name);
+            console.log(age);
+        }
+        print("aaa" , 20);
+
+        function printobj(obj1){
+            console.log(obj1.name);
+            console.log(obj1.age);
+        }
+        // 프로퍼티에 key 추가하기
+        printobj(obj3);
+        obj3.hasJob = true;
+        console.log(obj3);
+        // 프로퍼티에 key 삭제하기
+        // delete 사용 => delate.obj3.key
+        delete obj3.hasJob;
+        console.log(obj3);
+
+        /* 
+        let student1 = {
+            name : "수민",
+            age : 22,
+            tel : "010-1234-5678"
+        }
+        let student2 = {
+            name : "재훈",
+            age :32,
+            tel : "010-5555-1234"
+        }
+         */
+
+        // 생성자 함수 (함수명은 대문자로 시작) :똑같은 객체를 여러 개 만들어내기 위한 함수
+        function Person(name, age, tel) {
+            // this = {}; => 빈 객체 생략
+            this.name = name;
+            this.age = age;
+            this.tel = tel;
+            // return this; => 리턴 값 생략
+        }
+        // 객체 생성자 선언 : new라는 키워드랑 같이 쓰임
+        let student1 = new Person("수민",25,"010-1234-5678");
+        let student2 = new Person("재훈",32,"010-1111-2222");
+        console.log(student1);
+        console.log(student2);
+
+        // 객체를 생성해주는 일반 함수
+        // 객체는 key : value 형식으로 !!
+        // key 에는 문자열이 들어감 (key에 들어가는 문자열과 value가 같으면 key생략 가능)
+        function makePerson(name,age) {
+            return {
+                // name : name,
+                // age : age
+                name,
+                age
+            }
+        }
+        let student3 = makePerson("세영", 22);
+        console.log(student3);
+
+        // in 연산자 : 해당하는 object(객체)에 key가 있는지 확인
+        // key 있으면 true반환, 없으면 false반환. 
+        console.log('name' in student3);
+        console.log('hasJob' in student3);
+
+        // for in문 
+        let arr6 = ["a","b","c","d","e"];
+        for (let i of arr6) {
+            console.log(i);
+        }
+        for (let key in student1) {
+            console.log(student1[key]);
+        }
+        
+    </script>
+</body>
+</html>

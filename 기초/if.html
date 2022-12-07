@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* if (조건식 1) {
+            조건식이 true일 때 실행
+        } 
+        else if (조건식 2) {
+            조건식 1이 false일 때 조건식 2가 true일 때 실행
+            -> 단독 실행 불가능
+        }
+        else {
+            조건식이 1이 flase이고 조건식 2도 false일 때 실행
+            -> 단독 실행 불가능
+        } */
+        let time = 16;
+        if(time < 10) {
+            console.log("좋은 아침!");
+        } else if(time < 20) {
+            console.log("좋은 하루!");
+        } else {
+            console.log("좋은 밤!");
+        }
+        let num = 5;
+        let result = num > 4 ? "맞아요" : "틀렸어요";
+        console.log(result);
+        if(num > 4) {
+            result = "맞아요";
+        } else {
+            result = "틀렸어요";
+        }
+
+        let num2 = prompt("숫자를 입력하세요.");
+        // num2에 아무것도 안 적었을 때 : num2 = null() => false
+        // Not연산자 붙여줌 !num2 => true
+        //  num2를 parseInt 타입으로 바꾸어줌 => isNaN(Nunber(num2))
+        if (isNaN(parseInt(num2)) || !num2) {
+            alert("숫자를 입력하세요.");
+        }
+        else if (parseInt(num2) % 2 == 1) /* num2를 2로 나누고 나머지 값이 1일 때 */ {
+            alert("홀수입니다.");
+        } 
+        else {
+            alert("짝수입니다.");
+        }
+       /* 
+       삼항 연산자 
+       alert(num2 % 2 == 1 ? "홀수입니다." : "짝수입니다.");  
+       let result2 = a + b < 4 ? "미만" : "이상"; 
+       */
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {
+            background-color: #eee;
+            margin-bottom: 20px;
+        }
+        div {
+            display: flex;
+            align-items: center;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 0;
+            margin: 0 10px;
+        }
+        .color_Btn[data-value="black"] {background-color: black;}
+        .color_Btn[data-value="lightcoral"] {background-color: lightcoral;}
+        .color_Btn[data-value="lightgoldenrodyellow"] {background-color: lightgoldenrodyellow;}
+        .color_Btn[data-value="lightseagreen"] {background-color: lightseagreen;}
+        .color_Btn[data-value="lightskyblue"] {background-color: lightskyblue;}
+
+        .clearBtn {
+            width: 80px;
+            height: 50px;
+            background-color: aliceblue;
+            border-radius: 5px;
+            border: 1px solid #999;
+        }
+        /* 
+        #black {
+            background-color: black;
+        }
+        #coral {
+            background-color: lightcoral;
+        }
+        #yellow {
+            background-color: lightgoldenrodyellow;
+        }
+        #green {
+            background-color: lightseagreen;
+        }
+        #sky {
+            background-color: lightskyblue;
+        } 
+        */
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="500"></canvas>
+    <div>
+        <!-- data- => dataset객체가 자동으로 만들어짐 
+        (data-type="color" => key = type : value = "color") -->
+        <button class="color_Btn" data-type="color" data-value="black"></button>
+        <button class="color_Btn" data-type="color" data-value="lightcoral"></button>
+        <button class="color_Btn" data-type="color" data-value="lightgoldenrodyellow"></button>
+        <button class="color_Btn" data-type="color" data-value="lightseagreen"></button>
+        <button class="color_Btn" data-type="color" data-value="lightskyblue"></button>
+        <button class="clearBtn">지우기</button>
+    </div>
+
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        // let blackBtn = document.querySelector("#black");
+        // let coralBtn = document.querySelector("#coral");
+        // let yellowBtn = document.querySelector("#yellow");
+        // let greenBtn = document.querySelector("#green");
+        // let skyBtn = document.querySelector("#sky");
+        const btnDiv = document.querySelector("div");
+        const clearBtn = document.querySelector(".clearBtn");
+        let drawingMode; // true일 때만 그리기 
+        ctx.lineWidth = 5;
+        ctx.lineCap = "round";
+        // 선 색 변경
+        // ctx.strokeStyle = "black";
+        // ctx.strokeStyle = "lightcoral";
+        // ctx.strokeStyle = "lightgoldenrodyellow";
+        // ctx.strokeStyle = "lightseagreen";
+        // ctx.strokeStyle = "lightskyblue";
+
+        function downHandler() {
+            drawingMode = true;
+        }
+        function upHandler() {
+            drawingMode = false;
+        }
+        function moveHandler(e) {
+            if(!drawingMode) return;
+            let x = e.pageX;
+            let y = e.pageY;
+            ctx.beginPath();
+            ctx.moveTo(x,y);
+            ctx.lineTo(x,y);
+            ctx.stroke();
+        }
+
+        
+        // 색상 변경하는 함수 
+        function setColor(e) {
+            console.log(e);
+            let colorVal = e.target.dataset.value;
+            ctx.strokeStyle = colorVal;
+            console.log(colorVal);
+        }
+
+        canvas.addEventListener("mousedown", downHandler);
+        canvas.addEventListener("mouseup", upHandler);
+        canvas.addEventListener("mousemove", moveHandler);
+        btnDiv.addEventListener("click", setColor);
+        clearBtn.addEventListener("click", function(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+        })
+
+        // blackBtn.addEventListener("click", function(){
+        //     ctx.strokeStyle = "black";
+        // })
+        // coralBtn.addEventListener("click", function(){
+        //     ctx.strokeStyle = "lightcoral";
+        // })
+        // yellowBtn.addEventListener("click", function(){
+        //     ctx.strokeStyle = "lightgoldenrodyellow";
+        // })
+        // greenBtn.addEventListener("click", function(){
+        //     ctx.strokeStyle = "lightseagreen";
+        // })
+        // skyBtn.addEventListener("click", function(){
+        //     ctx.strokeStyle = "lightskyblue";
+        // })
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="1000" height="1000"></canvas>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        let scaleVal = 1;
+        let rotationVal = 0;
+
+        // 라디안 각도 반환 함수
+        function toRadian(d) {
+            return d * Math.PI / 180;
+        }
+
+        // 그리기 함수
+        function draw() {
+            ctx.save();
+            // ctx.setTransform(1,0,0,1,0,0);
+            ctx.translate(500,500);
+            ctx.scale(scaleVal,scaleVal);
+            ctx.rotate(toRadian(rotationVal));
+            ctx.strokeRect(-50,-50,100,100);     
+            ctx.restore();
+            scaleVal += 0.08;
+            rotationVal += 1;
+            requestAnimationFrame(draw);
+        }
+        draw();
+    </script>
+</body>
+</html>

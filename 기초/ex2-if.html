@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. pronpt창 입력받기 
+        // 2. 값이 100을 초과 하는지 비교 
+        // 3. 100보다 작으면 다시 입력 받기
+        // 4. 100보다 크면 종료
+        let num;
+        // 100보다 작거나 같을 때 다시 입력
+        // 아무것도 입력하지 않으면 종료 
+        do {
+            num = prompt("100을 초과하는 숫자를 입력하세요");
+            console.log(num);
+        } while(num <= 100 && num)
+        // AND && 연산자 -> 둘 중 하나라도 false면 실행되지 않음
+    </script>
+</body>
+</html>

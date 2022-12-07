@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 자바스크립트로 구현 -->
+        <!-- <ul>
+            <li>stu1</li>
+            <li>stu2</li>
+            <li>stu3</li>
+            <li>stu4</li>
+        </ul> -->
+    </div>
+    <script>
+        const $app = document.querySelector("#app");
+        // 초기 상태
+        let state = {
+            students : ["stu1","stu2","stu3","stu4"]
+        }
+        console.log(state.students);
+        // 화면에 그리기
+        const render = () => {
+            // const students = state.students;
+            // {students} => ["stu1","stu2","stu3","stu4"] 가 담겨져 있음
+            const {students} = state; //구조분해할당
+            // .map을 이용해 새로운 배열을 생성 -> li가 students안에 담겨있는 배열길이 만큼 생김
+            // .join을 이용해 배열을 문자열로 바꿔줌 
+            // $ = 변수
+            $app.innerHTML = `
+            <ul>
+                ${students.map(stu => `<li>${stu}</li>`).join("")}
+            </ul>
+            <button id="add">추가</button>
+            `;
+            document.querySelector("#add").addEventListener("click", function(){
+                // 클릭했을 때 원래 있던 배열길이에 + 1 됨
+                setState({students : [...students, `stu${students.length + 1}`]});
+                // students : ["stu1","stu2","stu3","stu4","stu5"]
+            })
+        }
+        render();
+        // 상태 변경하기
+        // setState에는 students : ["stu1","stu2","stu3","stu4","stu5"]가 담겨져있음
+        // (newState)라는 매개변수 자리에도 위와 같이 담김 
+        const setState = (newState) => {
+            // 스프레드 구문 이용하여 원래 있던 배열에 새로운 매개변수를 넣어줌
+            // 두 변수의 key가 똑같을 때 원본은 유지하고 원본에서 변경되는 key만 덮어씌운다
+            state = {...state, ...newState}
+            // 다시 화면에 그리기 
+            render();
+        }
+    </script>
+</body>
+</html>
